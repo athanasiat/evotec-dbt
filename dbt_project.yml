@@ -37,6 +37,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   evotec_project:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
+    +materialized: table
+    +transient: false #by default dbt builds the tables as transient if it's not explicity specified
