@@ -1,4 +1,4 @@
-{% snapshot snap_ACCOUNT %}
+{% snapshot snap_QUOTE %}
 
 
 {{
@@ -11,7 +11,7 @@
 }}
 
 
-select * from {{source ('SALESFORCE','ACCOUNT')}} 
+select * from {{source ('SALESFORCE','QUOTE')}} 
 
 
 {% endsnapshot %} 

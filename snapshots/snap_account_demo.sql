@@ -1,4 +1,4 @@
-{% snapshot snap_Account_demo %}
+{% snapshot snap_ACCOUNT_DEMO %}
 
 
 {{
@@ -11,7 +11,7 @@
 }}
 
 
-select id,BILLINGCOUNTRYCODE, _MODIFIED
+select id, _MODIFIED
  from {{source ('SALESFORCE','ACCOUNT_DEMO')}} 
 
 

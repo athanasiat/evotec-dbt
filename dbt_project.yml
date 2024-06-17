@@ -39,3 +39,6 @@ models:
   evotec_project:
     +materialized: table
     +transient: false #by default dbt builds the tables as transient if it's not explicity specified
+   
+
+
