@@ -1,4 +1,4 @@
-{% snapshot snap_Account %}
+{% snapshot snap_Account_demo %}
 
 
 {{
@@ -11,7 +11,8 @@
 }}
 
 
-select * from {{source ('SALESFORCE','ACCOUNT')}} 
+select id,BILLINGCOUNTRYCODE, _MODIFIED
+ from {{source ('SALESFORCE','ACCOUNT_DEMO')}} 
 
 
 {% endsnapshot %} 
