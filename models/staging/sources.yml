@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: SALESFORCE
+    description: "Salesforce raw data"
+    database: EVOTEC_DB_DEV
+    schema: RAW_DATA 
+
+    tables:
+      - name: ACCOUNT
+        description: "Salesforce Account table"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+              - relationships:
+                  to: source ('RAW_DATA','QUOTE')
+                  field: SBQQ__ACCOUNT__C
+
+      - name: QUOTE
+        description: "Salesforce Quote table"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: SBQQ__ACCOUNT__C
+            tests:
+              - relationships:
+                  to: source ('RAW_DATA','ACCOUNT')
+                  field: ID
+          - name: SBQQ__OPPORTUNITY2__C
+            tests:
+              - relationships:
+                  to: source ('RAW_DATA','QUOTELINE')
+                  field: ID
+      
+      - name: QUOTELINE
+        description: "Salesforce QuoteLine table"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+              - relationships:
+                  to: source ('RAW_DATA','WS2_PLAN')
+                  field: WS_2_QUOTE_LINE_C
+      
+      -  name: WS2_PLAN
+         description: "Salesforce Plan table"
+         columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: WS2_QUOTE_LINE__C
+            tests:
+              - relationships:
+                  to: source ('RAW_DATA','QUOTELINE') 
+                  field: ID
+                
