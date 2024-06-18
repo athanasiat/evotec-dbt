@@ -61,7 +61,7 @@ sources:
                   field: ID
       
       - name: ACCOUNT_DEMO
-        description: "Salesforce Account table foe demo purposes"
+        description: "Salesforce Account table for demo purposes"
         columns:
           - name: id
             tests:
