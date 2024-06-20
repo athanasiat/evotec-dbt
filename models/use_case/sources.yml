@@ -4,21 +4,10 @@ sources:
   - name: SALESFORCE
     description: "Salesforce raw data"
     database: EVOTEC_DB_DEV
-    schema: RAW_DATA 
+    schema: DW_L01_STG_ONE_CRM 
 
     tables:
-      - name: ACCOUNT
-        description: "Salesforce Account table"
-        columns:
-          - name: id
-            tests:
-              - unique
-              - not_null
-              - relationships:
-                  to: source ('RAW_DATA','QUOTE')
-                  field: SBQQ__ACCOUNT__C
-
-      - name: QUOTE
+      - name: STG_QUOTE
         description: "Salesforce Quote table"
         columns:
           - name: id
@@ -28,15 +17,15 @@ sources:
           - name: SBQQ__ACCOUNT__C
             tests:
               - relationships:
-                  to: source ('RAW_DATA','ACCOUNT')
+                  to: source ('DW_L01_STG_ONE_CRM','STG_ACCOUNT')
                   field: ID
           - name: SBQQ__OPPORTUNITY2__C
             tests:
               - relationships:
-                  to: source ('RAW_DATA','QUOTELINE')
+                  to: source ('DW_L01_STG_ONE_CRM','STG_QUOTELINE')
                   field: ID
       
-      - name: QUOTELINE
+      - name: STG_QUOTELINE
         description: "Salesforce QuoteLine table"
         columns:
           - name: id
@@ -44,10 +33,10 @@ sources:
               - unique
               - not_null
               - relationships:
-                  to: source ('RAW_DATA','WS2_PLAN')
+                  to: source ('DW_L01_STG_ONE_CRM','STG_WS_2_PLAN')
                   field: WS_2_QUOTE_LINE_C
       
-      -  name: WS2_PLAN
+      -  name: STG_WS_2_PLAN
          description: "Salesforce Plan table"
          columns:
           - name: id
@@ -57,17 +46,6 @@ sources:
           - name: WS2_QUOTE_LINE__C
             tests:
               - relationships:
-                  to: source ('RAW_DATA','QUOTELINE') 
+                  to: source ('DW_L01_STG_ONE_CRM','STG_QUOTELINE') 
                   field: ID
-      
-      - name: ACCOUNT_DEMO
-        description: "Salesforce Account table for demo purposes"
-        columns:
-          - name: id
-            tests:
-              - unique
-              - not_null
-              - relationships:
-                  to: source ('RAW_DATA','QUOTE')
-                  field: SBQQ__ACCOUNT__C
                 
