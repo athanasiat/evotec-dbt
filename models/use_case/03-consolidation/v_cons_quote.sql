@@ -6,8 +6,6 @@
 }}
 
 
-
-
 with
     cte_trn_quote as (
 
