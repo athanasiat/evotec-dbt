@@ -1,4 +1,4 @@
-{{ config(materialized="table", schema="DW_L04_DIMENSIONAL_DBT") }}
+{{ config(materialized="view", schema="DW_L04_DIMENSIONAL_DBT") }}
 
 
 
@@ -45,9 +45,9 @@ with
             cte_quoteline on cte_plan.quoteline_id = cte_quoteline.quoteline_id
         left outer join cte_quote on cte_quoteline.quote_id = cte_quote.quote_id
 
-    )
+    ),
 
-/*
+
 --generate months between for FFS
 expanded_months_duration AS (
     SELECT 
@@ -144,7 +144,7 @@ expanded_months_duration AS (
 --generate FTE_Quarterly
     cte_fte_quarterly as (
         select
-            "PLAN_ID"AS PLAN_ID,
+            "PLAN_ID" AS PLAN_ID,
            "PLAN_NAME" as	PLAN_NAME,
             QUOTELINE_ID	as QUOTELINE_ID,
             QUOTE_ID	as QUOTE_ID,
@@ -189,9 +189,9 @@ expanded_months_duration AS (
             STATUS	as STATUS          
         from cte_fte_joins
         where not (quote_id is null) and plan_period = 'Quarter'
-    )
+    ),
 
-/*
+
 --generate FFS
  cte_ffs as (
         select
@@ -232,12 +232,12 @@ expanded_months_duration AS (
         where (NOT("WS_2_UNIT_OF_MEASURE_C" = 'FTEs')  AND NOT("WS_2_UNIT_OF_MEASURE_C" = ''))
     )
 
-    */
+    
 
 
 -- UNION FTE + FFS
 select * from cte_fte_monthly
 union
 select * from cte_fte_quarterly
---union 
---select * from cte_ffs
+union 
+select * from cte_ffs

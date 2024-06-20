@@ -11,7 +11,7 @@
 }}
 
 
-select * from {{source ('SALESFORCE','STG_QUOTE')}} 
+select *  from {{source ('SALESFORCE','PSH_QUOTE')}} 
 
 
 {% endsnapshot %} 

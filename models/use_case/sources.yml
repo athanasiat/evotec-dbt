@@ -4,10 +4,10 @@ sources:
   - name: SALESFORCE
     description: "Salesforce raw data"
     database: EVOTEC_DB_DEV
-    schema: DW_L01_STG_ONE_CRM 
+    schema: DW_L02_PSH_ONE_CRM
 
     tables:
-      - name: STG_QUOTE
+      - name: PSH_QUOTE
         description: "Salesforce Quote table"
         columns:
           - name: id
@@ -17,15 +17,15 @@ sources:
           - name: SBQQ__ACCOUNT__C
             tests:
               - relationships:
-                  to: source ('DW_L01_STG_ONE_CRM','STG_ACCOUNT')
+                  to: source ('DW_L02_PSH_ONE_CRM','PSH_ACCOUNT')
                   field: ID
           - name: SBQQ__OPPORTUNITY2__C
             tests:
               - relationships:
-                  to: source ('DW_L01_STG_ONE_CRM','STG_QUOTELINE')
+                  to: source ('DW_L02_PSH_ONE_CRM','PSH_QUOTELINE')
                   field: ID
-      
-      - name: STG_QUOTELINE
+
+      - name: PSH_QUOTELINE
         description: "Salesforce QuoteLine table"
         columns:
           - name: id
@@ -33,12 +33,12 @@ sources:
               - unique
               - not_null
               - relationships:
-                  to: source ('DW_L01_STG_ONE_CRM','STG_WS_2_PLAN')
+                  to: source ('DW_L02_PSH_ONE_CRM','PSH_WS_2_PLAN')
                   field: WS_2_QUOTE_LINE_C
-      
-      -  name: STG_WS_2_PLAN
-         description: "Salesforce Plan table"
-         columns:
+
+      - name: PSH_WS_2_PLAN
+        description: "Salesforce Plan table"
+        columns:
           - name: id
             tests:
               - unique
@@ -46,6 +46,5 @@ sources:
           - name: WS2_QUOTE_LINE__C
             tests:
               - relationships:
-                  to: source ('DW_L01_STG_ONE_CRM','STG_QUOTELINE') 
+                  to: source ('DW_L02_PSH_ONE_CRM','PSH_QUOTELINE')
                   field: ID
-                

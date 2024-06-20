@@ -11,7 +11,7 @@
 }}
 
 
-select * from {{source ('SALESFORCE','STG_WS_2_PLAN')}} 
+select * from {{source ('SALESFORCE','PSH_WS_2_PLAN')}} 
 
 
 {% endsnapshot %} 

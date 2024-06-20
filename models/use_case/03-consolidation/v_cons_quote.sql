@@ -26,8 +26,8 @@ SELECT
     probability_c AS probability,
     ws_2_status_c AS status,
     sbqq_type_c AS quote_type,
-    CAST(MONTH(TO_DATE(ws_2_project_start_date_c)) AS VARCHAR) AS initial_planning_start_month,
-    CAST(MONTH(TO_DATE(initial_planning_end_date_c)) AS VARCHAR) AS initial_planning_end_month,
+    CAST(MONTH(TO_DATE(ws_2_project_start_date_c)) AS integer) AS initial_planning_start_month,
+   CAST(MONTH(TO_DATE(initial_planning_end_date_c)) AS integer) AS initial_planning_end_month,
     IFF(
         ws_2_project_start_date_c = initial_planning_end_date_c,
         CAST(MONTH(TO_DATE(ws_2_project_start_date_c)) AS VARCHAR),
