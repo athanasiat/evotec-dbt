@@ -37,8 +37,20 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   evotec_project:
-    +materialized: table
-    +transient: false #by default dbt builds the tables as transient if it's not explicity specified
+    03-consolidation:
+      +materialized: view
+      +schema: DW_L03_CONSOLIDATION__DBT
+
+    04-dimensional:
+      +materialized: table
+      +schema: DW_L04_DIMENSIONAL__DBT
+
+seeds:
+  +schema: DW_L04_DIMENSIONAL_DBT 
+
+snapshots:
+  +schema: DW_L02_PSH_ONE_CRM_DBT
+
    
 
 
