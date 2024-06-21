@@ -6,7 +6,7 @@ with
             id as plan_id,
             ws_2_quote_line_c as quoteline_id,
             number_c,
-           try_cast("WS_2_FTE_C" as integer) as fte,
+            try_cast("WS_2_FTE_C" as integer) as fte,
             name as plan_name,
             currencyisocode,
             ws_2_month_number_c,
