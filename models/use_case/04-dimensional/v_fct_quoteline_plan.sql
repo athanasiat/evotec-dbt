@@ -83,7 +83,7 @@ expanded_months_duration AS (
         from cte_quoteline
         left outer join cte_quote on cte_quoteline.quote_id = cte_quote.quote_id
         left outer join expanded_months_duration  on cte_quoteline.QUOTELINE_id = expanded_months_duration.QUOTELINE_id
-        )*/
+        )
         
         ,
 
@@ -132,7 +132,7 @@ expanded_months_duration AS (
                     else "FTE" * "WS_2_UNIT_PRICE_C"
                 end as float
             ) as REVENUE,
-            'FTE monthly' as GLAG_CALC,
+            'FTE monthly' as FLAG_CALC,
             BUSINESS_AREA	as BUSINESS_AREA,
             STATUS	as STATUS                       
         from cte_fte_joins
@@ -184,7 +184,7 @@ expanded_months_duration AS (
                     else "FTE" * "WS_2_UNIT_PRICE_C"
                 end as float
             ) REVENUE,
-            'FTE quarterly' as FALG_CALC,
+            'FTE quarterly' as FLAG_CALC,
             BUSINESS_AREA	as BUSINESS_AREA,
             STATUS	as STATUS          
         from cte_fte_joins
@@ -218,14 +218,14 @@ expanded_months_duration AS (
             WS_2_CHANGE_ORDER_C	as WS_2_CHANGE_ORDER_C,
             SBQQ_PRIMARY_C	as SBQQ_PRIMARY_C,
             SEQUENCE_NR	as SEQUENCE_NR,
-            'Unknown' AS "FTE", 
+            0 AS "FTE", 
             'Fee-for-service' as PLAN_PERIOD,
             WS_2_PER_C	as SALES_FTE_RATE,
             WS_2_UNIT_OF_MEASURE_C	as WS_2_UNIT_OF_MEASURE_C,
             WS_2_UNIT_PRICE_C	as WS_2_UNIT_PRICE_C,
             WS_2_NET_TOTAL_PRICE_C	as WS_2_NET_TOTAL_PRICE_C,
             cast("WS_2_NET_TOTAL_PRICE_C"/ NULLIF("WS_2_DURATION_MONTHS_C",0) as float) REVENUE,
-            'Fee-for-service' as FALG_CALC,
+            'Fee-for-service' as FLAG_CALC,
             BUSINESS_AREA	as BUSINESS_AREA,
             STATUS	as STATUS  
         from cte_ffs_joins
