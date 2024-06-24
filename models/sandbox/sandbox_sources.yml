@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: SALESFORCE
+    description: "Salesforce raw data"
+    database: EVOTEC_DB_DEV
+    schema: DW_L01_STG_ONE_CRM_DBT
+
+    tables:
+      - name: STG_QUOTE
+        description: "Salesforce Quote table"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: SBQQ__ACCOUNT__C
+            tests:
+              - relationships:
+                  to: source ('DW_L01_STG_ONE_CRM_DBT','STG_ACCOUNT')
+                  field: ID
+          - name: SBQQ__OPPORTUNITY2__C
+            tests:
+              - relationships:
+                  to: source ('DW_L01_STG_ONE_CRM_DBT','STG_QUOTELINE')
+                  field: ID

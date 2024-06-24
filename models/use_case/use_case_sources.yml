@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: SALESFORCE
+  - name: USE_CASE_SALESFORCE
     description: "Salesforce raw data"
     database: EVOTEC_DB_DEV
     schema: DW_L02_PSH_ONE_CRM
