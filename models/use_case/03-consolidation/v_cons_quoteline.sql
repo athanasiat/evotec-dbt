@@ -1,5 +1,5 @@
 {{ config(materialized="view", 
-        schema="DW_L03_CONSOLIDATION__DBT")
+        schema="DW_L03_CONSOLIDATION_DBT")
  }}
 
 
@@ -14,7 +14,10 @@ with
             cast(ws_2_unit_price_c as integer) as ws_2_unit_price_c,
             cast(ws_2_net_total_price_c as float) as ws_2_net_total_price_c,
             business_area_c
+
         from {{ ref("snapshot_QUOTELINE") }}
+
+        where DBT_VALID_TO is null
     )
 
 

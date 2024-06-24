@@ -1,4 +1,4 @@
-{{ config(materialized="view", schema="DW_L03_CONSOLIDATION__DBT") }}
+{{ config(materialized="view", schema="DW_L03_CONSOLIDATION_DBT") }}
 
 with
     cte_trn_plan as (
@@ -16,6 +16,8 @@ with
              IFF(CONTAINS(UPPER(NAME),'MONTH'),'Month',IFF(CONTAINS(UPPER(NAME),'QUARTER'),'Quarter','')) as plan_period
 
         from {{ ref("snapshot_WS_2_PLAN") }}
+
+        where DBT_VALID_TO is null
     )
 
 select *

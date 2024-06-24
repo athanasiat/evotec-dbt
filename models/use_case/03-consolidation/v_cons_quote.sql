@@ -1,7 +1,7 @@
 {{
   config(
     materialized='view',
-    schema='DW_L03_CONSOLIDATION__DBT'
+    schema='DW_L03_CONSOLIDATION_DBT'
   )
 }}
 
@@ -54,6 +54,8 @@ SELECT
 
 FROM
     {{ ref('snapshot_QUOTE') }}
+    
+    where DBT_VALID_TO is null
 
     )
 
