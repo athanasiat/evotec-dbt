@@ -7,7 +7,7 @@ sources:
     schema: DW_L02_PSH_ONE_CRM
 
     tables:
-      - name: PSH_QUOTE
+      - name: PSH_QUOTE_OLD
         description: "Salesforce Quote table"
         columns:
           - name: id
