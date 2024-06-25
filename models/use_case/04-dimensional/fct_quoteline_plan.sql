@@ -1,4 +1,4 @@
-{{ config(materialized="view", schema="DW_L04_DIMENSIONAL_DBT") }}
+{{ config(materialized="table", schema="DW_L04_DIMENSIONAL_DBT") }}
 
 
 
