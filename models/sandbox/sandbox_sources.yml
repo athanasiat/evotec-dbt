@@ -7,7 +7,7 @@ sources:
     schema: DW_L01_STG_ONE_CRM_DBT
 
     tables:
-      - name: STG_QUOTE_OLD
+      - name: STG_QUOTE
         description: "Salesforce Quote table"
         columns:
           - name: id
