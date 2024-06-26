@@ -1,4 +1,4 @@
-{% snapshot snapshot_QUOTE_SYED %}
+{% snapshot snapshot_WS_PLAN_SYED %}
 
 
 {{
@@ -11,7 +11,7 @@
 }}
 
 
-select *  from {{source ('DW_L01_STG_ONE_CRM_DBT','STG_QUOTE')}} 
+select * from {{source ('DW_L01_STG_ONE_CRM_DBT','STG_WS_PLAN')}} 
 
 
 {% endsnapshot %} 
