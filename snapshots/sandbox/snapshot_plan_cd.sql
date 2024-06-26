@@ -1,4 +1,4 @@
-{% snapshot snapshot_QUOTE_CD %}
+{% snapshot snapshot_WS_2_PLAN_CD %}
 
 
 {{
@@ -11,7 +11,7 @@
 }}
 
 
-select *  from {{source ('SALESFORCE','STG_QUOTE')}} 
+select * from {{source ('SALESFORCE','STG_WS_2_PLAN')}} 
 
 
 {% endsnapshot %} 
