@@ -1,4 +1,4 @@
-{% snapshot snapshot_QUOTE_AT %}
+{% snapshot snapshot_QUOTELINE_AT %}
 
 
 {{
@@ -11,7 +11,7 @@
 }}
 
 
-select *  from {{source ('SALESFORCE','STG_QUOTE')}} 
+select * from {{source ('SALESFORCE','STG_QUOTELINE')}} 
 
 
 {% endsnapshot %} 
