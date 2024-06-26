@@ -32,10 +32,10 @@ sources:
               - unique
               - not_null
               - relationships:
-                  to: source ('DW_L01_STG_ONE_CRM_DBT','STG_WS_PLAN')
+                  to: source ('DW_L01_STG_ONE_CRM_DBT','STG_WS_2_PLAN')
                   field: WS_2_QUOTE_LINE_C
 
-      - name: STG_WS_PLAN
+      - name: STG_WS_2_PLAN
         description: "Salesforce Plan table"
         columns:
           - name: id
