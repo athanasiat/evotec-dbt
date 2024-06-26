@@ -1,6 +1,4 @@
-{% snapshot snapshot_QUOTE_AT %}
-
-
+{% snapshot snapshot_QUOTELINE_PLAN_KC %}
 {{
     config(
         target_schema='DW_L02_PSH_ONE_CRM_DBT',
@@ -11,7 +9,6 @@
 }}
 
 
-select *  from {{source ('SALESFORCE','STG_QUOTE')}} 
+select * from {{source ('SALESFORCE','STG_WS_2_PLAN')}} 
 
-
-{% endsnapshot %} 
+{% endsnapshot %}

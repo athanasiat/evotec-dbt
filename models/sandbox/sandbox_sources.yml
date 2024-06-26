@@ -24,3 +24,30 @@ sources:
               - relationships:
                   to: source ('DW_L01_STG_ONE_CRM_DBT','STG_QUOTELINE')
                   field: ID
+      - name: STG_QUOTELINE
+        description: "Salesforce quoteline raw data"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+              - relationships:
+                  to: source ('DW_L01_STG_ONE_CRM_DBT', 'STG_QUOTE')
+                  field: SBQQ__OPPORTUNITY2__C
+              - relationships:
+                  to: source ('DW_L01_STG_ONE_CRM_DBT', 'STG_WS_2_PLAN')
+                  field: WS_2_QUOTE_LINE_C 
+      - name: STG_WS_2_PLAN
+        description: "Salesforce quoteline plan raw data"
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+              - relationships:
+                  to: source ('DW_L01_STG_ONE_CRM_DBT', 'STG_QUOTE')
+                  field: id
+
+                  
+                  
+

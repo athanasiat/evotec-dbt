@@ -53,7 +53,7 @@ SELECT
         
 
 FROM
-    {{ ref('snapshot_QUOTE_AT') }}
+    {{ ref('snapshot_QUOTE_KC') }}
     
     where DBT_VALID_TO is null
 
