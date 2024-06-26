@@ -6,7 +6,7 @@ with
             id as plan_id,
             ws_2_quote_line_c as quoteline_id,
             number_c,
-            try_cast("WS_2_FTE_C" as integer) as fte,
+            CAST("WS_2_FTE_C" AS INTEGER) as fte,
             name as plan_name,
             currencyisocode,
             ws_2_month_number_c,
@@ -15,7 +15,7 @@ with
             number_c as sequence_nr,
              IFF(CONTAINS(UPPER(NAME),'MONTH'),'Month',IFF(CONTAINS(UPPER(NAME),'QUARTER'),'Quarter','')) as plan_period
 
-        from {{ ref("snapshot_WS_2_PLAN") }}
+        from {{ ref("snapshot_QUOTELINE_PLAN_KC") }}
 
         where DBT_VALID_TO is null
     )
