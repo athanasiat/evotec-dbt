@@ -37,13 +37,23 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   evotec_project:
-    03-consolidation:
-      +materialized: view
-      +schema: DW_L03_CONSOLIDATION__DBT
+    sandbox:
+      03-consolidation:
+        +materialized: view
+        +schema: DW_L03_CONSOLIDATION_DBT
 
-    04-dimensional:
-      +materialized: table
-      +schema: DW_L04_DIMENSIONAL__DBT
+      04-dimensional:
+        +materialized: table
+        +schema: DW_L04_DIMENSIONAL_DBT
+
+    use_case:
+      03-consolidation:
+        +materialized: view
+        +schema: DW_L03_CONSOLIDATION_DBT
+
+      04-dimensional:
+        +materialized: table
+        +schema: DW_L04_DIMENSIONAL_DBT
 
 seeds:
   +schema: DW_L04_DIMENSIONAL_DBT 
