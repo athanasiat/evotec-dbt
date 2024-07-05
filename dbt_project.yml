@@ -61,6 +61,7 @@ seeds:
 snapshots:
   +schema: DW_L02_PSH_ONE_CRM_DBT
 
-   
+  
+#test
 
 
